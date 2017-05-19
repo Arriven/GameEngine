@@ -23,6 +23,8 @@ namespace GameEngine
 			m_position = position;
 		}
 
+		public abstract EShape GetShape();
+
 		private Vector m_position;
 	}
 }

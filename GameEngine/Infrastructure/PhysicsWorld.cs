@@ -20,6 +20,24 @@ namespace GameEngine
 			}
 		}
 
+		public List<PhysicsComponent> Bodies
+		{
+			get
+			{
+				return m_physicsBodies;
+			}
+		}
+
+		public void CleanUp()
+		{
+			m_physicsBodies.RemoveAll((PhysicsComponent obj) => obj.ShouldBeDestroyed);
+		}
+
+		public void AddBody(PhysicsComponent body)
+		{
+			m_physicsBodies.Add(body);
+		}
+
 		private void MakeStep()
 		{
 			foreach (var physicsBody in m_physicsBodies)

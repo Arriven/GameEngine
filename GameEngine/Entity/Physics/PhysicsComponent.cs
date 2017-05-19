@@ -1,7 +1,7 @@
 ﻿using System;
 namespace GameEngine
 {
-	public class PhysicsComponent
+	public class PhysicsComponent : Component
 	{
 		public PhysicsComponent()
 		{
@@ -27,6 +27,14 @@ namespace GameEngine
 			set
 			{
 				m_hitbox = value;
+			}
+		}
+
+		public Vector Position
+		{
+			get
+			{
+				return m_position;
 			}
 		}
 

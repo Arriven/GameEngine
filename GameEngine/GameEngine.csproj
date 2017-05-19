@@ -40,6 +40,10 @@
     <Compile Include="Entity\Physics\Intersection\HitBox.cs" />
     <Compile Include="Entity\Physics\Intersection\Point.cs" />
     <Compile Include="Entity\Physics\Intersection\Rectangle.cs" />
+    <Compile Include="Entity\Component.cs" />
+    <Compile Include="Entity\EShape.cs" />
+    <Compile Include="ICanvas.cs" />
+    <Compile Include="Color.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entity\" />

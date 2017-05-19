@@ -31,5 +31,10 @@ namespace GameEngine
 		{
 			return other.Intersects(this);
 		}
+
+		public override EShape GetShape()
+		{
+			return EShape.Circle;
+		}
 	}
 }

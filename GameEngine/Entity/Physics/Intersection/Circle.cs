@@ -39,6 +39,11 @@ namespace GameEngine
 		{
 			return m_radius;
 		}
+
+		public override EShape GetShape()
+		{
+			return EShape.Circle;
+		}
 		private readonly float m_radius;
 	}
 }

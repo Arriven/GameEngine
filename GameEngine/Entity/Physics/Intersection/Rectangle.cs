@@ -55,6 +55,11 @@ namespace GameEngine
 			return other.Intersects(this);
 		}
 
+		public override EShape GetShape()
+		{
+			return EShape.Square;
+		}
+
 		private Vector m_size;
 	}
 }

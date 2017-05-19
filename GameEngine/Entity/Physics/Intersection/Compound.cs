@@ -42,6 +42,16 @@ namespace GameEngine
 			return Intersects((HitBox)other);
 		}
 
+		public void AddChild(HitBox child)
+		{
+			m_childs.Add(child);
+		}
+
+		public override EShape GetShape()
+		{
+			return EShape.None;
+		}
+
 		private List<HitBox> m_childs;
 	}
 }
