@@ -6,6 +6,10 @@ namespace GameEngine
 	{
 		public GameWorld()
 		{
+            m_physics = new PhysicsWorld();
+            m_renderables = new List<RenderComponent>();
+            m_AIs = new List<AIComponent>();
+            m_factory = new EntityFactory(this);
 		}
 
 		public void Update(float dt)
@@ -15,6 +19,10 @@ namespace GameEngine
 				ai.Update(dt);
 			}
 			m_physics.Update(dt);
+            foreach(var renderable in m_renderables)
+            {
+                renderable.Update(dt);
+            }
 		}
 
 		public PhysicsWorld Physics
@@ -24,6 +32,14 @@ namespace GameEngine
 				return m_physics;
 			}
 		}
+
+        public EntityFactory Factory
+        {
+            get
+            {
+                return m_factory;
+            }
+        }
 
 		public void AddAI(AIComponent ai)
 		{
@@ -53,5 +69,6 @@ namespace GameEngine
 		private PhysicsWorld m_physics;
 		private List<AIComponent> m_AIs;
 		private List<RenderComponent> m_renderables;
+        private EntityFactory m_factory;
 	}
 }

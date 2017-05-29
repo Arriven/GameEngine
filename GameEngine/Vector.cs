@@ -50,5 +50,10 @@ namespace GameEngine
 		{
 			return (float)(Math.Pow(x, 2) + Math.Pow(y, 2));
 		}
+
+        public Vector Normalized()
+        {
+            return this / Length();
+        }
 	}
 }

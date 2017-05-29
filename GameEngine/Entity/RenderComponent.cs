@@ -73,30 +73,34 @@ namespace GameEngine
 		{
 			if (m_shape == EShape.None)
 			{
-				return false;
+				return true;
 			}
 
-			if (x > m_position.x + m_size.x || x < m_position.x - m_size.x ||
-				y > m_position.y + m_size.y || y < m_position.y - m_size.y)
+			if (x > m_position.x + m_size.x / 2 || x < m_position.x - m_size.x / 2 ||
+				y > m_position.y + m_size.y / 2 || y < m_position.y - m_size.y / 2)
 			{
-				return false;
+				return true;
 			}
 
 			if (m_shape == EShape.Circle)
 			{
-				if (Math.Pow((x - m_position.x) / m_size.x, 2) +
-				   Math.Pow((y - m_position.y) / m_size.y, 2) > 1)
+				if (Math.Pow((x - m_position.x) / m_size.x / 2, 2) +
+				   Math.Pow((y - m_position.y) / m_size.y / 2, 2) > 1)
 				{
-					return false;
+					return true;
 				}
 			}
 
-			return true;
+			return false;
 		}
 
 		private Color GetPixel(float x, float y)
 		{
+            if(m_texture != null)
 			return m_texture[(x - m_position.x) / m_size.x, (y - m_position.y) / m_size.y];
+            Color color = new Color();
+            color.A = 255;
+            return color;
 		}
 
 		private EShape m_shape;
